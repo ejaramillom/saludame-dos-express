@@ -1,12 +1,11 @@
 const express = require("express");
 const app = express();
+const capitalize = require("./capitalize.js");
 
 app.get('/makers/:nombre', (req, res) => {
-  function capitalize(s){
-      return s.toLowerCase().replace( /\b./g, function(a){ return a.toUpperCase(); } );
-  };
+  // require('./capitalize').capitalize;
   let name = req.params.nombre;
-  res.send("<h1>Hola " + capitalize(name) + "!</h1>");
+  res.send("<h1>Hola " + capitalize.capitalize(name) + "!</h1>");
 });
 
 app.get('/', (req, res) => {
